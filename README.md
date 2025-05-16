@@ -1,5 +1,57 @@
 # FinQuest
 
+FinQuest is an interactive, gamified financial quiz platform designed to enhance financial literacy through engaging quizzes, real-time stock data, and user-friendly features. The platform provides personalized learning experiences to help users understand investments, budgeting, and the stock market.
+
+🔍 Features
+
+🧠 Topic-Based Quizzes: Explore quizzes on stock markets, mutual funds, budgeting, and more.
+
+🔐 User Authentication: Secure sign-up and login system for personalized access.
+
+📈 Real-Time Stock Data: Integrated API to display live stock information.
+
+🏅 Gamified Learning: Earn badges, score points, and track progress through levels.
+
+📊 Score Tracking: View and analyze your quiz performance.
+
+🌙 Dark Theme Interface: A sleek and modern user interface for better visual comfort.
+
+🛠️ Tech Stack
+
+Frontend: HTML, CSS, JavaScript
+
+Backend: Python (Flask)
+
+Database: MySQL
+
+Development Environment: Jupyter Notebook (for model development and testing)
+
+🚀 Getting Started
+
+Prerequisites
+
+Make sure you have the following installed:
+
+Python 3.x
+
+MySQL
+
+Flask
+
+Required Python packages (requirements.txt included)
+
+Installation
+Clone the repository:
+
+Install dependencies:
+
+pip install -r requirements.txt
+Set up the MySQL database using the schema.sql file provided.
+
+Run the Flask app:
+
+python app.py
+Open your browser and go to http://localhost:5000.
 Screen Shots: 
 
 Home Page:
