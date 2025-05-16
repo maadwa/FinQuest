@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Finance Portal</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <form action="/login" method="post">
+        <h2>Login</h2>
+        <label>Username:</label>
+        <input type="text" name="username" required>
+        
+        <label>Password:</label>
+        <input type="password" name="password" required>
+        
+        <button type="submit">Login</button>
+
+        <div class="flash" id="login-msg"></div>
+
+        <p>New user? <a href="/register">Register here</a></p>
+
+    </form>
+
+    <script>
+        const msg = new URLSearchParams(window.location.search).get("msg");
+        if (msg) {
+            document.getElementById("login-msg").textContent = msg;
+        }
+    </script>
+</body>
+</html>

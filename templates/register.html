@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - Finance Portal</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <form action="/register" method="post">
+        <h2>Register</h2>
+        
+        <label>Name:</label>
+        <input type="text" name="name" required>
+        
+        <label>Email:</label>
+        <input type="email" name="email" required>
+        
+        <label>Phone:</label>
+        <input type="text" name="phone" required>
+        
+        <label>Username:</label>
+        <input type="text" name="username" required>
+        
+        <label>Password:</label>
+        <input type="password" name="password" required>
+        
+        <button type="submit">Register</button>
+
+        <div class="flash" id="register-msg"></div>
+
+        <p>Already have an account? <a href="/login">Login here</a></p>
+    </form>
+
+    <script>
+        const msg = new URLSearchParams(window.location.search).get("msg");
+        if (msg) {
+            document.getElementById("register-msg").textContent = msg;
+        }
+    </script>
+</body>
+</html>

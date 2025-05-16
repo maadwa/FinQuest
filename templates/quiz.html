@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <h1>Stock Market Quiz</h1>
+                <div class="quiz-info">
+                    <div class="quiz-info-item">
+                        <span>Question <span id="question-number">0</span> of <span id="total-question">0</span></span>
+                    </div>
+                    <div class="quiz-info-item">
+                        <span>Score: <span id="correct-score">0</span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-body">
+                <h2 id="question">Question text will appear here</h2>
+                <ul class="quiz-options">
+                    <!-- Options will be added here dynamically -->
+                </ul>
+                <div id="result">
+                    
+
+                    <!-- Result will appear here -->
+                </div>
+                <div class="quiz-footer">
+                    <button type="button" id="check-answer">Check Answer</button>
+                    <a href="stockmarket.html" class="nav-button">Home</a>
+                    <button type="button" id="play-again">Play Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

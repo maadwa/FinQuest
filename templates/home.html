@@ -1,0 +1,599 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinQuest - Your Financial Education Journey</title>
+    
+    <style>
+        :root {
+            --primary: #6d28d9;
+            --primary-light: #8b5cf6;
+            --accent: #10b981;
+            --dark-bg: #121212;
+            --dark-card: #1e1e1e;
+            --text: #e2e8f0;
+            --text-secondary: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: rgba(18, 18, 18, 0.9);
+            
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            padding: 15px 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(to bottom, rgba(109, 40, 217, 0.1), rgba(16, 185, 129, 0.05));
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+        
+        .hero-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+        }
+        
+        .features {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--dark-card);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-light);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card p {
+            color: var(--text-secondary);
+        }
+        
+        .learning-paths {
+            padding: 60px 0;
+            background-color: rgba(109, 40, 217, 0.05);
+            border-radius: 20px;
+        }
+        
+        .path-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .path-card {
+            background-color: var(--dark-card);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .path-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(109, 40, 217, 0.2);
+        }
+        
+        .path-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .stocks-img {
+            background-image: url('/api/placeholder/400/180');
+        }
+        
+        .mutual-funds-img {
+            background-image: url('/api/placeholder/400/180');
+        }
+        
+        .personal-finance-img {
+            background-image: url('/api/placeholder/400/180');
+        }
+        
+        .path-content {
+            padding: 20px;
+        }
+        
+        .path-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .path-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        .path-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .path-btn:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .testimonials {
+            padding: 60px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--dark-card);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary-light);
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .cta {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(to right, rgba(109, 40, 217, 0.1), rgba(16, 185, 129, 0.1));
+            border-radius: 20px;
+            margin-bottom: 60px;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .primary-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .primary-btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(109, 40, 217, 0.4);
+        }
+        
+        .secondary-btn {
+            background-color: transparent;
+            color: var(--primary-light);
+            padding: 12px 30px;
+            border: 1px solid var(--primary-light);
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .secondary-btn:hover {
+            background-color: rgba(109, 40, 217, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background-color: var(--dark-card);
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            margin-bottom: 15px;
+        }
+        
+        .footer-logo span {
+            color: var(--accent);
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Fin<span>Quest</span></div>
+                <div class="nav-buttons">
+                    <a href="home.html" class="nav-btn">Learn Module</a>
+                    <a href="allquizpage.html" class="nav-btn">Quiz</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Master Your Financial Future</h1>
+            <p>Learn how to navigate the stock market, build wealth through mutual funds, and make smarter financial decisions with FinQuest's interactive learning platform.</p>
+            <button class="hero-btn">Start Your Journey</button>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose FinQuest</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Practical Market Insights</h3>
+                    <p>Learn stock market fundamentals with real-world examples and case studies that help you understand market movements and investment strategies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Interactive Learning</h3>
+                    <p>Engage with our interactive modules that simulate real market scenarios, helping you practice investment decisions without real money at stake.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Personalized Path</h3>
+                    <p>From beginner to advanced, our customized learning paths adapt to your knowledge level and financial goals for a tailored educational experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="learning-paths">
+        <div class="container">
+            <h2 class="section-title">Learning Paths</h2>
+            <div class="path-cards">
+                <div class="path-card">
+                    <div class="path-img stocks-img"></div>
+                    <div class="path-content">
+                        <h3>Stock Market Fundamentals</h3>
+                        <p>Master the basics of stock trading, market analysis, and building a diversified portfolio that aligns with your risk tolerance.</p>
+                        <a href="stockmarket.html" class="path-btn">Explore Path</a>
+                    </div>
+                </div>
+                <div class="path-card">
+                    <div class="path-img mutual-funds-img"></div>
+                    <div class="path-content">
+                        <h3>Mutual Fund Investing</h3>
+                        <p>Learn how to evaluate mutual funds, understand expense ratios, and create a fund portfolio that matches your long-term financial goals.</p>
+                        <a href="#" class="path-btn">Explore Path</a>
+                    </div>
+                </div>
+                <div class="path-card">
+                    <div class="path-img personal-finance-img"></div>
+                    <div class="path-content">
+                        <h3>Personal Finance Mastery</h3>
+                        <p>Build a strong financial foundation with lessons on budgeting, debt management, and creating a holistic wealth-building strategy.</p>
+                        <a href="#" class="path-btn">Explore Path</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Build Your Financial Knowledge?</h2>
+            <p>Start your journey toward financial literacy and investment mastery with our comprehensive learning modules and interactive quizzes.</p>
+            <div class="cta-buttons">
+                <a href="home.html" class="primary-btn">Start Learning</a>
+                <a href="allquizpage.html" class="secondary-btn">Test Your Knowledge</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">Fin<span>Quest</span></div>
+                    <p>Your journey to financial literacy and investment mastery starts here.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Learning Paths</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Stock Market Basics</a></li>
+                        <li><a href="#">Mutual Fund Investing</a></li>
+                        <li><a href="#">Personal Finance</a></li>
+                        <li><a href="#">Technical Analysis</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Investing Glossary</a></li>
+                        <li><a href="#">Market News</a></li>
+                        <li><a href="#">Calculators</a></li>
+                        <li><a href="#">Community Forums</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 FinQuest. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
