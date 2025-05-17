@@ -52,6 +52,7 @@ Run the Flask app:
 
 python app.py
 Open your browser and go to http://localhost:5000.
+
 Screen Shots: 
 
 Home Page:
