@@ -12,7 +12,7 @@ FinQuest is an interactive, gamified financial quiz platform designed to enhance
 
 🏅 Gamified Learning: Earn badges, score points, and track progress through levels.
 
-📊 Score Tracking: View and analyze your quiz performance.
+📊 Score Tracking: View and analyze your performance.
 
 🌙 Dark Theme Interface: A sleek and modern user interface for better visual comfort.
 
